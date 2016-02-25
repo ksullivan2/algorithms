@@ -1,0 +1,47 @@
+<html><body><script type="text/javascript">
+"use strict";
+
+
+
+var A = [4,7,2,8,6,4,56,98,23,65,1,1,0,9];
+
+function selectionSort(array){
+
+	//loop through n-1 elements of the array to find a smaller number to exchange it with
+	for (var indexToExchange = 0; indexToExchange < array.length-1; indexToExchange++){
+		
+		//store the value of the element at the current indexToExchange
+		var currentMin = array[indexToExchange];
+		//we'll also track the index of the smallest value we find
+		var swapIndex = undefined;
+
+		//loop through the indices past the index I'm going to exchange to find a smaller value
+		for (var searchIndex = indexToExchange+1; searchIndex < array.length; searchIndex++){
+			
+			//if I find a smaller value, save its value as current min and keep track of its index
+			if (array[searchIndex] < currentMin){
+				currentMin = array[searchIndex];
+				swapIndex = searchIndex;
+			}
+		}
+
+		//once the loop exits, I've found the next smallest number (or none are smaller)
+		//since I have the min value stored in currentMin, I overwrite it first with the value of indexToExchange
+		//then I save the currentMin value to the indexToExchange
+		if (swapIndex){
+			array[swapIndex] = array[indexToExchange];
+			array[indexToExchange] = currentMin;
+		}
+		
+	}
+	return array
+}
+
+
+console.log(selectionSort(A))
+
+
+
+
+
+</script> </body> </html>
