@@ -1,9 +1,13 @@
-myArray = [1, 5, 3, 7, 4, 2, 6, 8]
+myArray = [1, 5, 3, 7, 4, 2, 3, 6, 8, 9]
 from math import ceil
 
 def mergeSort(array):
 
-	aux = array
+	aux = []
+	for value in array:
+		aux.append(value)
+	
+
 	splitMerge(array, aux, 0, len(array))
 	return array
 	
